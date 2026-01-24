@@ -28,10 +28,24 @@ void bubbleSort(vector<int> &arr) {
     }
 }
 
+void insertionSort(vector<int> &arr) {
+    for(int i=1;i<arr.size()-1;i++) {
+        int key = arr[i];
+        int j = 0;
+        while(j>=0 && arr[j]>key) {
+            arr[j+1] = arr[j];
+        }
+        arr[j+1] = key;
+    }
+}
+
 int main() {
     vector<int> arr1 = {42,2,3,56,9,28,42,37,10};
     selectionSort(arr1);
 
     vector<int> arr2 = {10,15,2,25,16,12};
     bubbleSort(arr2);
+
+    vector<int> arr3 = {42,2,3,56,9,28,42,37,10};
+    insertionSort(arr3);
 }
