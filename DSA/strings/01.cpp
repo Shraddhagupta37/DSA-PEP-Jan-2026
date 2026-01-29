@@ -15,8 +15,8 @@ string reverseString(string str) {
 bool isPalindrome(string str) {
     int l = 0, r = str.length()-1;
     while(l<r) {
-        if(!isalpha(str[l])) l++; continue;
-        if(!isalpha(str[r])) r--; continue;
+        if(l<r && !isalpha(str[l])) l++; continue;
+        if(l<r && !isalpha(str[r])) r--; continue;
 
         if(str[l] != str[r])
             return false;
