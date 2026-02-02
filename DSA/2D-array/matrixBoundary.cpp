@@ -16,21 +16,26 @@ class Solution {
         }
         top++;
         
-        
-        for(int i=top; i<=bottom; i++) {
-            result.push_back(mat[i][right]);
+        if(top <= bottom) {
+            for(int i=top; i<=bottom; i++) {
+                result.push_back(mat[i][right]);
+            }
+            right--;
+            
+            if(left <= right) {
+                for(int i=right; i>=left; i--) {
+                    result.push_back(mat[bottom][i]);
+                }
+                bottom--;
+                
+                if(top <= bottom) {
+                    for(int i=bottom; i>=top; i--) {
+                        result.push_back(mat[i][left]);
+                    }
+                    left++;
+                }
+            }
         }
-        right--;
-        
-        for(int i=right; i>=left; i--) {
-            result.push_back(mat[bottom][i]);
-        }
-        bottom--;
-        
-        for(int i=bottom; i>=top; i--) {
-            result.push_back(mat[i][left]);
-        }
-        left++;
         
         return result;
     }
