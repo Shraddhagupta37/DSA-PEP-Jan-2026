@@ -19,7 +19,10 @@ void printList(Node* head) {
     }
 
     Node* current = head;
-    cout << current->data << " -> ";
+    if(current->next == head)
+            cout << current->data << endl;
+        else
+            cout << current->data << " -> ";
     current = current->next;
 
     while(current != head) {
