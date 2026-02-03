@@ -69,7 +69,7 @@ void insertAtPos(Node* head,int val, int p) {
     for(int i=1; i<p-1; i++) {
         current = current->next;
 
-        if(current == NULL) {   //if p is > length of LL + 1, do nothing
+        if(current == NULL) {   //if p is > length of LL + 1, return
             cout << "Position out of bounds" << endl;
             return;
         }
@@ -104,6 +104,31 @@ void deleteAtEnd(Node* &head) {
     }
     Node* temp = current->next;
     current->next = NULL;
+    delete(temp);
+}
+
+void deleteAtPos(Node* &head, int p) {
+    if(head == NULL) return;
+
+    if(p==1) {
+        Node* temp = head;
+        head = head->next;
+        delete(temp);
+        return;
+    }
+
+    Node* current = head;
+    for(int i=1; i<p-1; i++) {
+        current = current->next;
+
+        if(current->next == NULL) {
+            cout << "Position out of bounds" << endl;
+            return;
+        }
+    }
+
+    Node* temp = current->next;
+    current->next = current->next->next;
     delete(temp);
 }
 
@@ -164,4 +189,12 @@ int main() {
     cout << "LL2 after deleting first node: ";
     printList(head2);
 
+
+    //deletion at position
+    int pd;
+    cout << "Enter position to delete node from LL1: ";
+    cin >> pd;
+    deleteAtPos(head1, pd);
+    cout << "After trying deletion at given pos: ";
+    printList(head1);
 }
