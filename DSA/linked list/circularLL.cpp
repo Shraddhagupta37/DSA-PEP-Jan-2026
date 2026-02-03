@@ -94,6 +94,13 @@ void insertAtPos(Node* &head, int val, int p) {
 void deleteAtBegin(Node* &head) {
     if(head == NULL) return;
 
+    if(head->next == head) {
+        Node* temp = head;
+        head = NULL;
+        delete(temp);
+        return;
+    }
+
     Node* current = head;
     while(current->next != head) {
         current = current->next;
@@ -107,6 +114,13 @@ void deleteAtBegin(Node* &head) {
 
 void deleteAtEnd(Node* &head) {
     if(head == NULL) return;
+
+    if(head->next == head) {
+        Node* temp = head;
+        head = NULL;
+        delete(temp);
+        return;
+    }
 
     Node* current = head;
     while(current->next->next != head) {
