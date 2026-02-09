@@ -22,6 +22,10 @@ class MyStack {
         top = NULL;
     }
 
+    bool isEmpty() {
+        return top == NULL;
+    }
+
     void push(int val) {
         Node* newNode = new Node(val);
         if(top == NULL) {
