@@ -38,14 +38,14 @@ class MyQueue {
     int peek() {
         if(front == -1 || front > rear) {
             cout << "Queue is empty" << endl;
-            return;
+            return -1;
         }
         return arr[front];
     }
 };
 
 int main() {
-    MyQueue q(5);
+    MyQueue q(5); 
 
     q.enqueue(1);
     q.enqueue(2);
