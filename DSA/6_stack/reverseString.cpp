@@ -22,7 +22,14 @@ string reverseWords(string s) {
     return ans;
 }
 
+string reverseString(string str) {
+    reverse(str.begin(), str.end());
+    return str;
+}
+
 int main() {
     string str = "Hello How are You?";
-    cout << "Reversed string: " << reverseWords(str) << endl;
+    cout << "Reversed order of words: " << reverseWords(str) << endl;
+
+    cout << "Reversed string: " << reverseString(str) << endl;
 } 
