@@ -27,8 +27,50 @@ class Node {
         left = NULL;
         right = NULL;
     }
+
+    void InorderTraversal(Node* root) {
+        if(root == NULL) return;
+
+        InorderTraversal(root->left);
+        cout << root->data << " ";
+        InorderTraversal(root->right);
+    }
+
+    void PreorderTraversal(Node* root) {
+        if(root == NULL) return;
+        cout << root->data << " ";
+        PreorderTraversal(root->left);
+        PreorderTraversal(root->right);
+    }
+
+    void PostorderTraversal(Node* root) {
+        if(root == NULL) return;
+        PostorderTraversal(root->left);
+        PostorderTraversal(root->right);
+        cout << root->data << " ";
+    }
 };
 
 int main() {
+    Node* root = new Node(1);
+    root->left = new Node(2);
+    root->right = new Node(3);
 
+    root->left->left = new Node(4);
+    root->left->right = new Node(5);
+    root->right->left = new Node(6);
+    root->right->right = new Node(7);
+    
+    cout << "Inorder traversal: ";
+    root->InorderTraversal(root);
+    cout << endl;
+
+    cout << "Preorder traversal: ";
+    root->PreorderTraversal(root);
+    cout << endl;
+
+    cout << "Postorder traversal: ";
+    root->PostorderTraversal(root);
+    cout << endl;
+    
 }
