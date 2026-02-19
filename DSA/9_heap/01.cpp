@@ -69,12 +69,18 @@ class MaxHeap {
         }
     }
 
+    void heapify() {
+        
+    }
+
     void insert(int val) {
         heap.push_back(val);
         bubbleUp(heap.size()-1);
     }
 
     void deleteTop() {
+        if(heap.empty()) return;
+
         swap(heap[0], heap[heap.size()-1]);
         heap.pop_back();
         bubbleDown();
